@@ -11,24 +11,32 @@ bool IsPrime(int N){
     }
     return true;
 }
-int output1(){
+void taskProc28(){
+    std::cout << "1. Задача №1 - Proc28. \n";
     int number, count = 0;
-    std::cout << "введите число > 1 \n";
+    std::cout << "Введите число больше 1: \n";
     for (int i = 0; i < 10; i++){
         std::cin >> number;
-        if (number <= 0){
-            count += 0;
-        }else if (number > 1 && IsPrime(number) == true){
-            count += 1;
+        if (number > 1){
+            if (IsPrime(number) == true){
+                std::cout << number << " - True. \n";
+                count += 1;
+            }else{
+                std::cout << number << " - False. \n";
+                count += 0;
+            }
+        }else{
+            std::cout << "Error! Введите число больше 1. Перезапустите программу. \n";
+            break;
         }
     }
-    std::cout << "кол-во простых чисел вашего набора: " << count;
-    return 0;
+    std::cout << "Кол-во простых чисел вашего набора: " << count << "." << "\n";
+    std::cout << "Конец задачи.";
 }
 
 //2
-int SortInc(float a, float b, float c){
-    float x;
+void SortInc(float& a, float& b, float& c){
+    float x = 0.0;
     if (a > b){
         x = a;
         a = b;
@@ -44,23 +52,28 @@ int SortInc(float a, float b, float c){
         a = b;
         b = x;
     }
-    std::cout << a << b;
-    return c;
+    // std::cout << a << b;
+    // return c;
 }
-int output2(){
-    float a1, b1, c1, a2, b2, c2;
-    std::cout << "Введите набор числа из трёх цифр №1\n";
-    std::cin >> a1 >> b1 >> c1;
-    std::cout << "Введите набор числа из трёх цифр №2\n";
-    std::cin >> a2 >> b2 >> c2;
-    std::cout << "Числа в порядке возрастания:\n";
-    std::cout << SortInc(a1, b1, c1) << "\n";
-    std::cout << SortInc(a2, b2, c2) << "\n";
-    return 0;
+void taskProc12(){
+    std::cout << "2. Задача №2 - Proc12. \n";
+    for (int i = 1; i <= 2; i++){
+        float a, b, c;
+        std::cout << "Введите числа a" << i << " b" << i << " c" << i <<": ";
+        std::cin >> a >> b >> c;
+        SortInc(a, b, c);
+        std::cout << a << " " << b << " " << c << "\n";
+    }
+    std::cout << "Конец задачи. \n";
 }
 
 //3
+//-0.2 5 0.0001 ~ 2.68
 float Power4(float x, float a, float eps){
+    if (fabs(x) >= 1 || eps <= 0){
+        std::cout << "Error! Введены неверные значения. \n";
+        return 0;
+    }
     float result = 0, per = 1;
     int i = 1;
     while (per >= eps && i <= a){
@@ -70,11 +83,13 @@ float Power4(float x, float a, float eps){
     }
     return result;
 }
-int output3(){
+int taskProc45(){
+    std::cout << "3. Задача №3 - Proc45. \n";
     float x, a, eps;
     std::cout << "введите значения х, а, епсилон: |x| < 1, eps > 0\n";
     std::cin >> x >> a >> eps;
     std::cout << "(1 + x) ^ a ~ " << Power4(x, a, eps) << "\n";
+    std::cout << "Конец задачи. \n";
     return 0;
 }
 
@@ -119,12 +134,18 @@ int power(int num1, int n, int p) {
     }
     return result;
 }
-int output4(){
+int taskTheTri18(){
+    std::cout << "4. Задача №4 - TheTri18. \n";
     int a, cc, n;
     std::cout << "Введите число, систему счисления вашего числа и степень, в которую хотите возвести число\n";
     std::cin >> a >> cc >> n;
+    if (cc < 2 || cc > 9) {
+        std::cout << "Вы ввели неправильно СС. Перезапустите задачу. \n";
+        return 1;
+    }
     int res = power(a, n, cc);
-    std::cout << res;
+    std::cout << "Результат возведения " << a << " " << cc << "-й системы счисления в " << n << " степень: " << res << "\n";
+    std::cout << "Конец задачи. \n";
     return 0;
 }
 
@@ -143,15 +164,17 @@ int Summ(int N){
         return Rec(N) + Summ(N - 1);
     }
 }
-int output5(){
+int taskReccur11(){
+    std::cout << "5. Задача №5 - Reccur11. \n";
     float S;
     int N;
     std::cout << "Введите кол-во элементов для подсчёта - N\n";
     std::cin >> N;
     if (N >= 1 && N < 30){
-        std::cout << Summ(N);
+        std::cout << Summ(N) << "\n";
     }else{
         std::cout << "Error\n";
     }
+    std::cout << "Конец задачи. \n";
     return 0;
 }
