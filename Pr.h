@@ -1,32 +1,32 @@
 //1
 bool IsPrime(int N);
 
-int output1();
+void taskProc28();
 
 //2
-int SortInc(float a, float b, float c);
+void SortInc(float& a, float& b, float& c);
 
-int output2();
+void taskProc12();
 
 //3
 float Power4(float x, float a, float eps);
 
-int output3();
+int taskProc45();
 
 //4
 int convert(int num, int p);
 
 int unconvert(int num, int p);
 
-int multiply(int x_p, int y_p, int p);
+int multi(int x_p, int y_p, int p);
 
 int power(int x_p, int n, int p);
 
-int output4();
+int taskTheTri18();
 
 //5
 int Rec(int N);
 
 int Summ(int N);
 
-int output5();
+int taskReccur11();
